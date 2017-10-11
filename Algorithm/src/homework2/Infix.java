@@ -3,7 +3,7 @@ package homework2;
 import java.util.Scanner;
 
 public class Infix {
-	static char[] priority = { '~', '/', '*', '+' };
+	static char[] priority = { '~', '/','%', '*', '+' };
 	static DoubleStack s = new DoubleStack();
 
 	public static void main(String[] args) {
@@ -50,6 +50,11 @@ public class Infix {
 			
 			d2 = s.peak(); s.pop();
 			s.push(d2 / d);
+			break;
+		case '%':
+			d = s.peak(); s.pop();
+			d2 = s.peak(); s.pop();
+			s.push(d2%d);
 			break;
 		default:
 			System.out.println("잘못된 연산자를 입력하셨습니다.");
