@@ -3,9 +3,8 @@ package homework2;
 import java.util.Scanner;
 
 public class Infix {
-	
-	static char[] priority = { '~', '/',
-							'%', '*', '+' };
+
+	static char[] priority = { '~', '/', '%', '*', '+' };
 	static DoubleStack s = new DoubleStack();
 
 	public static void main(String[] args) {
@@ -15,7 +14,7 @@ public class Infix {
 		String str1 = scan.next();
 
 		String post = toPostfix(str1);
-		System.out.println(post);
+		System.out.println("변환 : " + post);
 		calculation(post);
 
 	}// end main
@@ -23,40 +22,54 @@ public class Infix {
 	public static void operands(char ch) {
 		double d, d2;
 
-		
 		switch (ch) {
-		
+
 		case '~':
-			d= s.peak(); s.pop();
+			d = s.peak();
+			s.pop();
 			s.push(-d);
 			break;
-		
+
 		case '+':
-			d = s.peak(); s.pop();
-			d2 = s.peak(); s.pop();
+			d = s.peak();
+			s.pop();
+			d2 = s.peak();
+			s.pop();
 			s.push(d2 + d);
 			break;
 		case '*':
-			d = s.peak(); s.pop();
-			d2 = s.peak(); s.pop();
+			d = s.peak();
+			s.pop();
+			d2 = s.peak();
+			s.pop();
 			s.push(d2 * d);
 			break;
 		case '/':
-			d = s.peak(); s.pop();
-			
-			// d 가  0인 경우 나눌 수 없다.
-			if(d == 0){
+			d = s.peak();
+			s.pop();
+
+			// d 가 0인 경우 나눌 수 없다.
+			if (d == 0) {
 				System.out.println("'0'으로 나눌 수 없습니다.");
-				break;
+				System.exit(1);
 			}
-			
-			d2 = s.peak(); s.pop();
+
+			d2 = s.peak();
+			s.pop();
 			s.push(d2 / d);
 			break;
 		case '%':
-			d = s.peak(); s.pop();
-			d2 = s.peak(); s.pop();
-			s.push(d2%d);
+			d = s.peak();
+			s.pop();
+
+			if (d == 0) {
+				System.out.println("'0'으로 나눌 수 없습니다.");
+				break;
+			}
+
+			d2 = s.peak();
+			s.pop();
+			s.push(d2 % d);
 			break;
 		default:
 			System.out.println("잘못된 연산자를 입력하셨습니다.");
@@ -66,10 +79,10 @@ public class Infix {
 	}// end operands
 
 	public static void calculation(String post) {
-		
+
 		char ch;
 		double x, y;
-		
+
 		// 1. 글자 읽어서 stack 에 쌓기
 		for (int i = 0; i < post.length(); i++) {
 			ch = post.charAt(i);
@@ -82,10 +95,10 @@ public class Infix {
 				s.push(n);
 			}
 		}
-		
-		//출력
+
+		// 출력
 		x = s.peak();
-		System.out.println(x);
+		System.out.println("연산 결과 : "+ x);
 
 	}// end calculation
 
@@ -96,20 +109,20 @@ public class Infix {
 		char ch;
 
 		for (int i = 0; i < str1.length(); i++) {
+			ch = str1.charAt(i);
 			// 괄호 처리
-			if (str1.charAt(i) == '(') {
-				ch = str1.charAt(i);
+			if (ch == '(') {
 				operators.push(ch);
 
 				// 괄호 처리
-			} else if (str1.charAt(i) == ')') {
+			} else if (ch == ')') {
 				// pop until '(' is out
 				while (true) {
 					// 괄호의 갯수가 맞지 않을 경우
-					if(operators.isEmpty()){
+					if (operators.isEmpty()) {
 						System.out.println("괄호의 개수가 맞지 않습니다.");
 					}
-					
+
 					ch = operators.peak();
 					operators.pop();
 					// '('을 만나면 while 문 break; - '(' 출력 안되게
@@ -121,7 +134,6 @@ public class Infix {
 				}
 				// 변환
 			} else {
-				ch = str1.charAt(i);
 				// 숫자가 아닌 연산자는 스택에 쌓기
 				if (ch > '9' || ch < '0') {
 					// 우선 순위 비교 - 비었으면 바로 집어 넣는다.
@@ -186,17 +198,17 @@ public class Infix {
 				priOld = i;
 			}
 		}
-		
-		if(newx == '*') {
-			priNew = priNew -2;
-		}else if(newx == '%') {
-			priNew = priNew-1;
+
+		if (newx == '*') {
+			priNew = priNew - 2;
+		} else if (newx == '%') {
+			priNew = priNew - 1;
 		}
-		
-		if(oldy == '*') {
-			priOld = priOld -2;
-		}else if(oldy=='%') {
-			priOld = priOld-1;
+
+		if (oldy == '*') {
+			priOld = priOld - 2;
+		} else if (oldy == '%') {
+			priOld = priOld - 1;
 		}
 
 		return priNew < priOld;
