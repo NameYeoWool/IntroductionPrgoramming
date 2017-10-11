@@ -3,7 +3,9 @@ package homework2;
 import java.util.Scanner;
 
 public class Infix {
-	static char[] priority = { '~', '/','%', '*', '+' };
+	
+	static char[] priority = { '~', '/',
+							'%', '*', '+' };
 	static DoubleStack s = new DoubleStack();
 
 	public static void main(String[] args) {
@@ -134,7 +136,7 @@ public class Infix {
 						if (check(ch, op)) {
 							operators.push(ch);
 
-							// 새로 들어온 연산자의 우선순위가 높은 경우
+							// 새로 들어온 연산자의 우선순위가 높거나 같은 경우
 						} else {
 							operators.pop();
 							operators.push(ch);
@@ -176,13 +178,25 @@ public class Infix {
 
 		if (oldy == '(')
 			return true;
-		for (i = 0; i < 4; i++) {
+		for (i = 0; i < priority.length; i++) {
 			if (newx == priority[i]) {
 				priNew = i;
 			}
 			if (oldy == priority[i]) {
 				priOld = i;
 			}
+		}
+		
+		if(newx == '*') {
+			priNew = priNew -2;
+		}else if(newx == '%') {
+			priNew = priNew-1;
+		}
+		
+		if(oldy == '*') {
+			priOld = priOld -2;
+		}else if(oldy=='%') {
+			priOld = priOld-1;
 		}
 
 		return priNew < priOld;
