@@ -9,6 +9,7 @@ public class Exam7_1 {
 	public static void main(String[] args) throws FileNotFoundException {
 		
 		//입력
+		// 데이터 파일로 불러올때, 복붙 하고 마지막에 엔터 처주어야 한다. - next()는 빈 공백이나 enter를 기준으로 나눔
 		Scanner s = new Scanner(new File("data/data1.txt"));
 		int n = s.nextInt();//배열 크기 입력
 				//new 붙여줘야 함을 잊지 말자!
