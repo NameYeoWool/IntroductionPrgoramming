@@ -15,14 +15,17 @@ public class IfTest1 {
 		// 0 ~ 100
 		int score = r.nextInt(101);
 		
-		//이렇게 하면 -99~99까지 구할 수 있다  . 101로 나누면 -100 ~ 100 까지 구할 수 있다.
+		//에러 코드 - 인자 > 0 
+		int score2 = r.nextInt(2);
+		
+		//이렇게 하면 0~99까지 구할 수 있다  . 101로 나누면 0~ 100 까지 구할 수 있다.
 		//int score2 = r.nextInt()%100;
 		
 		// 50~100 사이 값
 		//int score3 = r.nextInt(51) + 50;
 		
 		System.out.println(score);
-		
+		System.out.println(score2 + " 2 ");
 		if(score >= 70){
 			System.out.println("합격~");
 		}

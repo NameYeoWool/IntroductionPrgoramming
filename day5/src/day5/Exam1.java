@@ -23,12 +23,14 @@ public class Exam1 {
 		//4. 최소값
 		int b = min();
 		//5. 최대 최대의 차이
-		System.out.println("차이:" + (a-b));// 더하기 빼기 우선순위가 같아서 "차이: " + a 먼저 계산하므로
+		System.out.println("차이 : " + (a-b));// 더하기 빼기 우선순위가 같아서 "차이: " + a 먼저 계산하므로
 										// 괄호 처줌
 		//6. 평균과의 차 
 		for(int k : ks){
 			//System.out.print((int)(avg-k)+ " ");
 			System.out.printf("%4.1f",avg-k); // 4는 '전체 크기' 1은 '소수점 이하 자리 수  **소수 둘째 자리에서 반올림
+												// 소수점 자리 '.' 도 전체 크기에서 한자리 차지한다.
+			
 		}
 		
 		

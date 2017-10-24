@@ -5,15 +5,15 @@ public class OpTest {
 	public static void main(String[] args) {
 		int a = 20;
 		a =  a + 1;
-		System.out.println(a);
+		System.out.println(a); // 21
 		a++; // a = a +1 ;
-		System.out.println(a);
+		System.out.println(a); // 22
 		--a; // a = a- 1;
-		System.out.println(a);
+		System.out.println(a); // 21
 		a--;
-		System.out.println(a);
-		System.out.println(a--); // 작업 수행하고 나서 -1
-		System.out.println(--a);// -1 하고 작업 수행
+		System.out.println(a); // 20 
+		System.out.println(a--); // 작업 수행하고 나서 -1   // 20
+		System.out.println(--a);// -1 하고 작업 수행  // 18
 		
 		
 		// ctrl  + D  한줄 삭제
