@@ -2,12 +2,14 @@ package edu.skku.hw2;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Pure {
 	
 	public static void main(String[] args) throws FileNotFoundException {
 		Scanner scan = new Scanner(new File("data/data.txt"));
+		Random ran = new Random();
 		
 		//ют╥б
 		int n = scan.nextInt();
@@ -15,7 +17,7 @@ public class Pure {
 		
 		for(int r = 0 ; r< n ;r ++){
 			for(int c= 0 ; c<n; c++){
-				map[r][c]=scan.nextInt();
+				map[r][c]=ran.nextInt(10);
 			}
 		}
 		
