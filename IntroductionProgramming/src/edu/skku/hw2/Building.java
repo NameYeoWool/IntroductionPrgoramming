@@ -9,6 +9,7 @@ public class Building {
 	public static void main(String[] args) throws FileNotFoundException {
 		
 		Scanner scan = new Scanner(new File("data/data1.txt"));
+		//Scanner scan = new Scanner(System.in);
 		
 		int n = scan.nextInt();
 		int max = 0;

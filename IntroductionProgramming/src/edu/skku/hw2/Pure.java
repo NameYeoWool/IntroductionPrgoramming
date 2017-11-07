@@ -9,6 +9,8 @@ public class Pure {
 	
 	public static void main(String[] args) throws FileNotFoundException {
 		Scanner scan = new Scanner(new File("data/data.txt"));
+		//Scanner scan = new Scanner(System.in);
+		
 		Random ran = new Random();
 		
 		//ют╥б
