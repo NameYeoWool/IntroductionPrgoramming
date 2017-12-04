@@ -1,4 +1,4 @@
-package homework3;
+package heapSorting;
 
 public class Heap {
 	private final int SIZE = 200;
@@ -46,7 +46,46 @@ public class Heap {
 		}
 	}
 	
-	public void heapSort(){
+	
+	public int delete(){
+		if(isHeapEmpty()) System.exit(1);
+		
+		int value = element[0];
+		int pos = 0 ;
+		num--;
+		if(isHeapEmpty()) return value;
+		
+		int last = num;
+		element[pos] = element[num];
+
+		int child=pos;
+		int temp;
+		while( pos*2+1 <=last){
+			//one child
+			if( pos*2+2 > last) child = pos*2+1;
+				
+			//two children
+			if(pos*2+2 <=last){
+				child = (element[pos*2+1] > element[pos*2+2]) ? pos*2+1 : pos*2+2;
+			}
+			
+			if(element[pos] <element[child]){
+				//swap elements at pos and at child
+				temp = element[pos];
+				element[pos] = element[child];
+				element[child]=temp;
+			}else{
+				break;
+			}
+			
+			pos = child;
+
+		}
+		return value;
+	}
+	
+	
+	/*public void heapSort(){
 		int i,j;
 		int temp;
 	
@@ -110,34 +149,7 @@ public class Heap {
 				
 			
 		}
-		
-	}//end adjust
 	
+	}//end adjust  */
+}//end class	
 	
-	
-/*	public int delete(){
-		if(isHeapEmpty()) System.exit(1);
-		
-		int value = element[0];
-		int pos = 0 ;
-		num--;
-		if(isHeapEmpty()) return value;
-		
-		int last = num;
-		element[pos] = element[num];
-		while( pos <=last){
-			//one child
-			if( pos*2+2 > last){
-				
-			//two children
-			}else{
-				
-			}
-		}
-		
-		return value;
-		
-	}*/
-	
-	
-}
