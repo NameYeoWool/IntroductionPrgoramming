@@ -25,7 +25,6 @@ public class BstInorder {
 		// 중간값이 마지막
 		int[] arr = {10, 25,   16, 13, 15,5, 27,20,};
 		
-		
 		sort(arr);
 		
 	}
@@ -37,7 +36,6 @@ public class BstInorder {
 		for (int i = 1 ; i < arr.length ; i++){
 			root.insert(arr[i]);
 		}
-		
 		root.inorder();
 	}
 	
