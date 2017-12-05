@@ -26,30 +26,11 @@ public class Prim {
 			for( int j= 0 ; j <n; j++){
 				s = scan.nextInt();
 				g.graph[i][j] = s;
-				g.cost[i][j]= s;
+				g.cost[i][j] = s;
 			}
 		}
 		
-		/*for(int i = 0 ; i < n ; i ++){
-			Node node = new Node();
-			node.vertex = scan.nextInt();
-			
-			Node cur = g.headnodes[i];
-			
-			if (cur == null){
-				g.headnodes[i] = node;
-			}else{
-				while(true){
-					if (cur.link == null){
-						cur.link = node;
-						break;
-					}else{
-						cur = cur.link;
-					}
-				}
-			}
-			
-		}// for ¹®    */
+
 		
 		findPath(g);
 		
@@ -59,6 +40,39 @@ public class Prim {
 	public static void findPath(Graph g){
 		int n = g.getN();
 		
+		LinkedListHN T = new LinkedListHN();
+		LinkedListHN TV = new LinkedListHN();
+		
+		int v = 0;
+		TV.insert(v);
+		int vertex = v;
+		int min = Integer.MAX_VALUE;
+		
+		while( T.length() <= n-1){
+			for(int i = 0 ; i < n; i ++){
+				if(g.graph[v][i] != 0 && TV.nodeAt(i) == null){
+					if( min > g.cost[v][i]){
+						min = g.cost[v][i];
+						vertex = i;
+					}
+				}
+			}
+			
+			min = Integer.MAX_VALUE;
+			TV.insert(vertex);
+			T.insert(v, vertex);
+			v = vertex;
+		}
+		
+		
+		
+		//Ãâ·Â
+		
+		for(int i = T.length()-1; i>=-1; i--){
+			System.out.print(" ( "+T.nodeAt(i).data + " , " + T.nodeAt(i).data2 + " ) ");
+		}
+		
+		/*
 		int[] costToTree = new int[n];
 		int[] closestNode = new int[n];
 		
@@ -113,7 +127,7 @@ public class Prim {
 		for(int i = 0 ; i<n; i++){
 			System.out.print(closestNode[i]+ " ");
 		}
-		System.out.println();
+		System.out.println();*/
 		
 	}// end findPath
 }//end class
