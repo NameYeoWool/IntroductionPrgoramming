@@ -1,28 +1,28 @@
 package greedyAlgorithms;
 
 public class Edge {
-	private Node from;
-	private Node to;
+	private int closest;
+	private int cur;
 	
-	public Edge(Node x, Node y){
-		this.from = x;
-		this.to = y;
+	public Edge(int x, int y){
+		this.closest = x;
+		this.cur = y;
 	}
 
-	public Node getFrom() {
-		return from;
+	public int getFrom() {
+		return closest;
 	}
 
-	public void setFrom(Node from) {
-		this.from = from;
+	public void setFrom(int from) {
+		this.closest = from;
 	}
 
-	public Node getTo() {
-		return to;
+	public int getTo() {
+		return cur;
 	}
 
-	public void setTo(Node to) {
-		this.to = to;
+	public void setTo(int to) {
+		this.cur = to;
 	}
 	
 	
