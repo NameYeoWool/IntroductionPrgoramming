@@ -1,4 +1,4 @@
-package greedyAlgorithms;
+package primAlgorithm;
 
 public class Edge {
 	private int closest;

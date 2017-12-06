@@ -1,4 +1,4 @@
-package greedyAlgorithms;
+package dijkstraAlgorithm;
 
 public class LinkedListHN {
 	

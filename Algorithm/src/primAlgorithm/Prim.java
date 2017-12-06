@@ -1,4 +1,4 @@
-package greedyAlgorithms;
+package primAlgorithm;
 
 import java.util.Arrays;
 import java.util.Scanner;
