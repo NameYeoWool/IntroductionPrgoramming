@@ -8,6 +8,16 @@ public class LinkedListHN {
 		head = new Node();
 	}
 	
+	 
+	public boolean search(int item){
+		Node cur = head.link;
+		
+		while (cur != null){
+			if(cur.data == item) return true;
+			cur = cur.link;
+		}
+		return false;
+	}
 	public int length(){
 		int cnt = 0;
 		Node cur = head;
@@ -24,14 +34,18 @@ public class LinkedListHN {
 		int i = 0 ;
 		
 		cur = head;
+		
+
 		while(cur.link != null && i <k){
 			cur = cur.link;
 			i++;
 		}
 		
-		if(cur.link == null){
+		/*if(cur.link == null){
 			return null;
 		}
+		*/
+		
 		return cur;
 	}
 	
@@ -54,6 +68,19 @@ public class LinkedListHN {
 		temp.data2 = value2;
 		temp.link = head.link;
 		head.link = temp;
+	}
+	
+	public String toString(){
+		String s = "";
+		Node cur = head.link;
+		
+		while(cur != null){
+			s = " ( "+ cur.data + " , " + cur.data2 + " ) " + s;
+			cur = cur.link;
+		}
+		
+		return s;		
+		
 	}
 	
 }
