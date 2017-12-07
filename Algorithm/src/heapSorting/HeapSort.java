@@ -12,10 +12,10 @@ public class HeapSort {
 		int[] arr = new int [n];
 		for(int i = 0 ; i <arr.length;i++){
 			arr[i] = scan.nextInt();
-		}
-		*/
-		int n = 8;
-		int[] arr = {10 ,6, 5, 13, 7, 9, 8, 3};
+		}*/
+		
+		int n = 7;
+		int[] arr = { 10 ,6, 5, 9, 8, 3 ,13};
 		
 		int[] brr = sort(arr,n);
 		
@@ -43,18 +43,7 @@ public class HeapSort {
 		
 		return brr;
 	}
-		/*private int[] element;
-		private Heap heap;
-		public HeapSort(int[] list){
-			element = list;
-			heap = new Heap()
-		}
-		
-		public void Sort(){
-			for(int i = 0 ; i <element.length; i++){
-				
-			}
-		}	*/
+
 		
 }
 

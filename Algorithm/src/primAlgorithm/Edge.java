@@ -9,22 +9,7 @@ public class Edge {
 		this.cur = y;
 	}
 
-	public int getFrom() {
-		return closest;
-	}
 
-	public void setFrom(int from) {
-		this.closest = from;
-	}
-
-	public int getTo() {
-		return cur;
-	}
-
-	public void setTo(int to) {
-		this.cur = to;
-	}
-	
 	
 	
 	

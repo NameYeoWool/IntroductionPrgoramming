@@ -75,15 +75,17 @@ public class Dijkstra {
 						}
 					}
 				}
+				min = Integer.MAX_VALUE;
 				if( s.search(index) == false) s.insert(index);
 				
 				
-				for(int i = 0 ; i < n; i ++)
+				for(int i = 0 ; i < n; i ++){
 					if (s.search(i) == false){
 						if( distance[i] > distance[index] + g.cost[index][i]){
 							distance[i] = distance[index] + g.cost[index][i];
 						}
 					}
+				}
 			}
 			
 			

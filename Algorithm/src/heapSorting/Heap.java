@@ -10,13 +10,7 @@ public class Heap {
 		element = new int[SIZE];
 		num = 0;
 	}
-	public void getElement(){
-		for(int i = 0 ; i < element.length; i ++){
-			if(element[i] == 0) continue;
-			System.out.print(element[i] + " ");
-		}
-		System.out.println();
-	}
+
 	
 	public boolean isHeapEmpty(){
 		return num == 0 ;
@@ -86,71 +80,6 @@ public class Heap {
 	}
 	
 	
-	/*public void heapSort(){
-		int i,j;
-		int temp;
 	
-		for(i = num-1; i>0 ; i--){
-			temp = element[0];
-			element[0] = element[i];
-			element[i] = temp;
-			adjust(0,i-1);
-		}
-	}
-	
-	public void adjust(int root,int last){
-		int pos = root;
-		int temp;
-		int l = pos*2 +1;
-		if(l > last) return;
-		int r = pos*2 +2;
-		if (r> last){
-			if(element[pos]<element[l]){
-				temp = element[l];
-				element[l] =element[pos];
-				element[pos] = temp;
-			}
-			return;
-		}
-		while(true){
-			if( element[l]> element[r] && element[l] > element[pos]){
-				temp = element[l];
-				element[l] = element[pos];
-				element[pos] = temp;
-				pos  = pos *2  +1 ;
-				
-				l = pos*2+1;
-				if( l > last) break;
-				r = pos*2+2;
-				if( r > last ){
-					if( element[pos]<element[l]){
-						temp = element[l];
-						element[l] = element[pos];
-						element[pos] = temp;
-					}
-					break;
-				}
-			}else if( element[l] < element[r] && element[r]> element[pos]){
-				temp = element[r];
-				element[r] = element[pos];
-				element[pos] = temp;
-				pos  = pos *2 +2;
-				l = pos*2 +1;
-				if( l > last) break;
-				r = pos*2 +2;
-				if( r > last ){
-					if( element[pos]<element[l]){
-						temp = element[l];
-						element[l] = element[pos];
-						element[pos] = temp;
-					}
-					break;
-				}
-			}
-				
-			
-		}
-	
-	}//end adjust  */
 }//end class	
 	

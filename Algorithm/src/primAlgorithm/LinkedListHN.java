@@ -29,25 +29,7 @@ public class LinkedListHN {
 		
 		return cnt;
 	}
-	public Node nodeAt(int k){
-		Node cur;
-		int i = 0 ;
-		
-		cur = head;
-		
 
-		while(cur.link != null && i <k){
-			cur = cur.link;
-			i++;
-		}
-		
-		/*if(cur.link == null){
-			return null;
-		}
-		*/
-		
-		return cur;
-	}
 	
 	public void delete(Node pos){
 		if(pos.link != null){
